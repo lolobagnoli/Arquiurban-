@@ -311,11 +311,27 @@
   .info-contacto p {
       margin-bottom: 10px;
   }
-  
-  .mapa-container {
-      margin-top: 20px;
-  }
-  
+    /* --- HACE QUE EL MAPA SEA RESPONSIVE EN CUALQUIER DISPOSITIVO --- */
+
+    /* 1. Define el contenedor con posición relativa */
+    .mapa-responsive {
+        position: relative;
+        padding-bottom: 56.25%; /* Ratio 16:9 (el más común para videos/mapas). Si quieres 4:3 usa 75% */
+        height: 0;
+        overflow: hidden; /* Oculta cualquier cosa que se salga del contenedor */
+        max-width: 100%; /* Asegura que no se salga de la pantalla */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* 2. Aplica posición absoluta al mapa incrustado para que ocupe todo el espacio */
+    .mapa-responsive iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Ocupa el 100% del ancho del contenedor */
+        height: 100%; /* Ocupa el 100% del alto del contenedor */
+    }
   /* Estilos del Formulario */
   form label {
       display: block;
